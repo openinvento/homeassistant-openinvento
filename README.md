@@ -36,7 +36,7 @@ On Home Assistant 2026.11 and older, use the
 
 ### Manual
 
-Copy the `custom_components/openinvent` directory into the
+Copy the `custom_components/openinvento` directory into the
 `custom_components` directory of your Home Assistant configuration, then
 restart Home Assistant.
 
@@ -71,12 +71,12 @@ Example template:
 
 ## Actions
 
-### `openinvent.create_entry`
+### `openinvento.create_entry`
 
 Creates an area, shelf, box, or article.
 
 ```yaml
-action: openinvent.create_entry
+action: openinvento.create_entry
 data:
   inventory: 4f9d2a3e-7a1b-4b2e-8c3d-1e2f3a4b5c6d
   type: article
@@ -85,23 +85,23 @@ data:
   stock_tracking: true
 ```
 
-### `openinvent.update_entry`
+### `openinvento.update_entry`
 
 Updates an existing entry. Only fields that should change need to be supplied.
 
 ```yaml
-action: openinvent.update_entry
+action: openinvento.update_entry
 data:
   uuid: e1f2a3b4-c5d6-7e8f-9a0b-1c2d3e4f5a6b
   quantity: 2
 ```
 
-### `openinvent.delete_entry`
+### `openinvento.delete_entry`
 
 Deletes an entry.
 
 ```yaml
-action: openinvent.delete_entry
+action: openinvento.delete_entry
 data:
   uuid: e1f2a3b4-c5d6-7e8f-9a0b-1c2d3e4f5a6b
 ```

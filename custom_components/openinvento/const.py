@@ -2,7 +2,7 @@
 
 from logging import getLogger
 
-DOMAIN = "openinvent"
+DOMAIN = "openinvento"
 LOGGER = getLogger(__package__)
 CONF_URL = "url"
 CONF_API_KEY = "api_key"
