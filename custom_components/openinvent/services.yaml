@@ -1,0 +1,74 @@
+create_entry:
+  name: Create entry
+  description: Create an area, shelf, box, or article in OpenInvento.
+  fields:
+    inventory:
+      required: true
+      selector:
+        text:
+    type:
+      required: true
+      selector:
+        select:
+          options: [area, shelf, box, article]
+    name:
+      required: true
+      selector:
+        text:
+    parent:
+      selector:
+        text:
+    description:
+      selector:
+        text:
+    quantity:
+      selector:
+        number:
+          min: 0
+    stock_tracking:
+      selector:
+        boolean:
+    category:
+      selector:
+        text:
+    field_values_input:
+      selector:
+        object:
+update_entry:
+  name: Update entry
+  description: Update an OpenInvento inventory entry.
+  fields:
+    uuid:
+      required: true
+      selector:
+        text:
+    parent:
+      selector:
+        text:
+    name:
+      selector:
+        text:
+    description:
+      selector:
+        text:
+    quantity:
+      selector:
+        number:
+          min: 0
+    stock_tracking:
+      selector:
+        boolean:
+    category:
+      selector:
+        text:
+    field_values_input:
+      selector:
+        object:
+delete_entry:
+  name: Delete entry
+  description: Delete an OpenInvento inventory entry.
+  fields:
+    uuid:
+      required: true
+      selector:
+        text:
