@@ -1,0 +1,23 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Connect to OpenInvento",
+        "description": "Enter the URL of your OpenInvento instance and an API key. Disable certificate verification only for instances using a self-signed or otherwise unverified certificate.",
+        "data": {
+          "url": "Instance URL",
+          "api_key": "API key",
+          "verify_ssl": "Verify SSL certificate"
+        }
+      }
+    },
+    "error": {
+      "auth": "The API key was rejected.",
+      "connection": "Unable to connect to OpenInvento.",
+      "unknown": "An unknown error occurred."
+    },
+    "abort": {
+      "already_configured": "This OpenInvento instance is already configured."
+    }
+  }
+}
