@@ -1,4 +1,3 @@
-#!/usr/bin/env python3
 """Sensors for OpenInvento inventory statistics."""
 
 from __future__ import annotations
