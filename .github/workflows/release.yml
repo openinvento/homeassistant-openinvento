@@ -1,0 +1,63 @@
+name: Release
+
+on:
+  release:
+    types:
+      - published
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    name: Publish integration archive
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout the release
+        uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
+        with:
+          ref: ${{ github.event.release.tag_name }}
+
+      - name: Update manifest version
+        env:
+          RELEASE_TAG: ${{ github.event.release.tag_name }}
+        run: |
+          python3 - <<'PY'
+          import json
+          import os
+          import re
+          from pathlib import Path
+
+          tag = os.environ["RELEASE_TAG"]
+          match = re.fullmatch(r"v?(\d+\.\d+\.\d+)", tag)
+          if match is None:
+              raise SystemExit(f"Release tag must be a semantic version: {tag}")
+
+          manifest_path = Path("custom_components/openinvento/manifest.json")
+          manifest = json.loads(manifest_path.read_text())
+          manifest["version"] = match.group(1)
+          manifest_path.write_text(json.dumps(manifest, indent=2) + "\n")
+          PY
+
+      - name: Create integration archive
+        run: |
+          git ls-files custom_components/openinvento | zip openinvento.zip -@
+
+      - name: Upload integration archive
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh release upload "${{ github.event.release.tag_name }}" openinvento.zip --clobber
+
+      - name: Commit manifest version
+        env:
+          DEFAULT_BRANCH: ${{ github.event.repository.default_branch }}
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add custom_components/openinvento/manifest.json
+          if git diff --cached --quiet; then
+            echo "Manifest version is already up to date."
+            exit 0
+          fi
+          git commit -m "Update manifest for ${{ github.event.release.tag_name }}"
+          git push origin "HEAD:${DEFAULT_BRANCH}"
