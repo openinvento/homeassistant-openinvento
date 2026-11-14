@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 """Sensors for OpenInvento inventory statistics."""
 
 from __future__ import annotations
@@ -23,9 +24,7 @@ DESCRIPTIONS = (
         key="articles", name="Articles", icon="mdi:package-variant"
     ),
     SensorEntityDescription(key="areas", name="Areas", icon="mdi:map-marker"),
-    SensorEntityDescription(
-        key="low_stock", name="Low stock items", icon="mdi:alert"
-    ),
+    SensorEntityDescription(key="low_stock", name="Low stock items", icon="mdi:alert"),
     SensorEntityDescription(
         key="entries", name="Inventory entries", icon="mdi:format-list-bulleted"
     ),
