@@ -19,13 +19,19 @@ if TYPE_CHECKING:
     from .data import OpenInventoConfigEntry
 
 DESCRIPTIONS = (
-    SensorEntityDescription("articles", "Articles", icon="mdi:package-variant"),
-    SensorEntityDescription("areas", "Areas", icon="mdi:map-marker"),
-    SensorEntityDescription("low_stock", "Low stock items", icon="mdi:alert"),
     SensorEntityDescription(
-        "entries", "Inventory entries", icon="mdi:format-list-bulleted"
+        key="articles", name="Articles", icon="mdi:package-variant"
     ),
-    SensorEntityDescription("inventories", "Inventories", icon="mdi:warehouse"),
+    SensorEntityDescription(key="areas", name="Areas", icon="mdi:map-marker"),
+    SensorEntityDescription(
+        key="low_stock", name="Low stock items", icon="mdi:alert"
+    ),
+    SensorEntityDescription(
+        key="entries", name="Inventory entries", icon="mdi:format-list-bulleted"
+    ),
+    SensorEntityDescription(
+        key="inventories", name="Inventories", icon="mdi:warehouse"
+    ),
 )
 
 
@@ -52,6 +58,7 @@ class OpenInventoSensor(CoordinatorEntity, SensorEntity):
         """Initialize the sensor."""
         super().__init__(coordinator)
         self.entity_description = description
+        self._attr_has_entity_name = True
         self._attr_unique_id = f"{coordinator.config_entry.entry_id}_{description.key}"
         self._attr_device_info = {
             "identifiers": {(DOMAIN, coordinator.config_entry.entry_id)},

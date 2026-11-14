@@ -57,16 +57,16 @@ The integration creates one OpenInvento device with these sensors:
 
 | Sensor | State | `items` attribute |
 | --- | ---: | --- |
-| Articles | Article count | Article entries |
-| Areas | Area count | Area entries |
-| Low stock items | Tracked articles with quantity `≤ 0` | Low-stock entries |
-| Inventory entries | Total entry count | All entries |
-| Inventories | Inventory count | Inventory UUIDs and names |
+| `sensor.openinvento_articles` (Articles) | Article count | Article entries |
+| `sensor.openinvento_areas` (Areas) | Area count | Area entries |
+| `sensor.openinvento_low_stock` (Low stock items) | Tracked articles with quantity `≤ 0` | Low-stock entries |
+| `sensor.openinvento_entries` (Inventory entries) | Total entry count | All entries |
+| `sensor.openinvento_inventories` (Inventories) | Inventory count | Inventory UUIDs and names |
 
 Example template:
 
 ```jinja
-{{ state_attr('sensor.openinvent_low_stock', 'items') }}
+{{ state_attr('sensor.openinvento_low_stock', 'items') }}
 ```
 
 ## Actions
