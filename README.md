@@ -18,21 +18,21 @@ instances to Home Assistant using the OpenInvento REST API.
 
 ## Installation
 
-### Home Assistant Marketplace
+### Marketplace custom repository
 
-Home Assistant 2026.11 and newer includes HACS as the **Marketplace**. No
-separate HACS installation is required.
+OpenInvento is not available in the default Home Assistant Marketplace catalog yet. Add this repository to your marketplace (HACS) using the button below:
 
-1. Open **Settings → Marketplace** in Home Assistant.
-2. Search for **OpenInvento**.
-3. Open the integration and select **Download**.
-4. Restart Home Assistant if prompted.
+[![Add to Home Assistant](https://my.home-assistant.io/badges/hacs_repository.svg)](https://my.home-assistant.io/redirect/hacs_repository/?owner=openinvento&repository=homeassistant-openinvento&category=integration)
 
-If this repository is not yet in the Marketplace catalog, add it as a custom
-repository from the Marketplace settings.
+Alternatively, add it manually:
 
-On Home Assistant 2026.11 and older, use the
-[HACS](https://hacs.xyz/docs/use/) integration instead.
+1. Open **HACS → Integrations** in Home Assistant.
+2. Select the three-dot menu and choose **Custom repositories**.
+3. Enter `https://github.com/openinvento/homeassistant-openinvento` as the
+   repository and select **Integration** as the category.
+4. Install **OpenInvento**, then restart Home Assistant if prompted.
+
+See the [HACS documentation](https://hacs.xyz/docs/use/) for more information.
 
 ### Manual
 
