@@ -1,4 +1,4 @@
-"""Runtime data types for OpenInvento."""  # noqa: EXE002
+"""Runtime data types for OpenInvento."""
 
 from dataclasses import dataclass
 from typing import TYPE_CHECKING

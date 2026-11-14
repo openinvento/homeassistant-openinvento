@@ -1,4 +1,4 @@
-"""OpenInvento API client package."""  # noqa: EXE002
+"""OpenInvento API client package."""
 
 from .client import (
     OpenInventoApiAuthenticationError,

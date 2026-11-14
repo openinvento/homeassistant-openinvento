@@ -1,4 +1,4 @@
-"""Home Assistant integration for OpenInvento."""  # noqa: EXE002
+"""Home Assistant integration for OpenInvento."""
 
 from __future__ import annotations
 

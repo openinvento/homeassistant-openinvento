@@ -1,4 +1,4 @@
-"""Sensors for OpenInvento inventory statistics."""  # noqa: EXE002
+"""Sensors for OpenInvento inventory statistics."""
 
 from __future__ import annotations
 

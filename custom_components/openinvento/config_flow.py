@@ -1,4 +1,4 @@
-"""Config flow for OpenInvento."""  # noqa: EXE002
+"""Config flow for OpenInvento."""
 
 from __future__ import annotations
 

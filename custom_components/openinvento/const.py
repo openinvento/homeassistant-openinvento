@@ -1,4 +1,4 @@
-"""Constants for the OpenInvento integration."""  # noqa: EXE002
+"""Constants for the OpenInvento integration."""
 
 from logging import getLogger
 

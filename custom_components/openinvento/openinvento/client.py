@@ -1,4 +1,4 @@
-"""HTTP client for the OpenInvento external REST API."""  # noqa: EXE002
+"""HTTP client for the OpenInvento external REST API."""
 
 from __future__ import annotations
 
